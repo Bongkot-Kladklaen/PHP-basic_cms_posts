@@ -1,9 +1,12 @@
+<?php 
+    require_once "include/edit.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Posts</title>
+    <title>View Posts</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper.js -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
@@ -29,61 +32,66 @@
             </div>
             <div class="col-9">
                 <h4>Edit Post</h4>
-                <form action="edit_post" method="post" enctype="multipart/form-data">
+                <form action="<?php echo $_SERVER['PHP_SELF']; ?>" method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="edit_form" value="<?php echo $post_id;?>">
                     <div class="row g-3 align-items-center mb-3">
                         <div class="col-2">
-                            <label for="post_title" class="col-form-label">Post Title</label>
+                            <label class="col-form-label">Post Title</label>
                         </div>
                         <div class="col-10">
-                            <input type="text" id="post_title" class="form-control" aria-describedby="passwordHelpInline">
+                            <input type="text" class="form-control" name="title" value="<?php echo $post_title;?>">
                         </div>
                     </div>
                     <div class="row g-3 align-items-center mb-3">
                         <div class="col-2">
-                            <label for="post_author" class="col-form-label">Post Author</label>
+                            <label class="col-form-label">Post Author</label>
                         </div>
                         <div class="col-10">
-                            <input type="text" id="post_author" class="form-control" aria-describedby="passwordHelpInline">
+                            <input type="text" class="form-control" name="author" value="<?php echo $post_author;?>">
                         </div>
                     </div>
                     <div class="row g-3 align-items-center mb-3">
                         <div class="col-2">
-                            <label for="post_keywords" class="col-form-label">Post Keywords</label>
+                            <label class="col-form-label">Post Keywords</label>
                         </div>
                         <div class="col-10">
-                            <input type="text" id="post_keywords" class="form-control" aria-describedby="passwordHelpInline">
+                            <input type="text" class="form-control" name="keywords" value="<?php echo $post_keywords;?>">
                         </div>
                     </div>
                     <div class="row g-3 align-items-center mb-3">
                         <div class="col-2">
-                            <label for="post_image" class="col-form-label">Post Image</label>
+                            <label class="col-form-label">Post Image</label>
                         </div>
                         <div class="col-10">
-                            <div class="form-file">
-                                <input type="file" class="form-file-input" id="customFile">
-                                <label class="form-file-label" for="customFile">
-                                    <span class="form-file-text">Choose file...</span>
-                                    <span class="form-file-button">Browse</span>
-                                </label>
+                            <div class="row">
+                                <div class="col-9 pt-5">
+                                    <div class="form-file">
+                                        <input type="file" class="form-file-input" name="image" />
+                                        <label class="form-file-label">
+                                            <span class="form-file-text">Choose file...</span>
+                                            <span class="form-file-button">Browse</span>
+                                        </label>
+                                    </div>
+                                </div>  
+                                <div class="col-3">
+                                    <img width="150" height="150" src="../img/<?php echo $post_image;?>" alt="" />
+                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="row g-3 align-items-center mb-3">
                         <div class="col-2">
-                            <label for="post_content" class="col-form-label">Post Content</label>
+                            <label class="col-form-label">Post Content</label>
                         </div>
                         <div class="col-10">
-                            <textarea class="form-control" id="post_content" rows="6"></textarea>
+                            <textarea class="form-control" rows="6" name="content"><?php echo $post_content;?></textarea>
                         </div>
                     </div>
-                    <button type="submit" name="edit" class="btn btn-primary">Update</button>
+                    <input type="submit" name="update" class="btn btn-primary" value="Insert">
                 </form>
-            
             </div>
         </div>
     </div>
-    
-    
-       
+           
 </body>
 </html>

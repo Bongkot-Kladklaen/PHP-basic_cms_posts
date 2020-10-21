@@ -1,3 +1,6 @@
+<?php 
+    include_once "include/view.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +21,7 @@
     </header><br>
     <div class="container">
         <div class="row">
-            <div class="col-3">
+            <div class="col-2">
                 <h4>Welcome : </h4>
                 <ul class="list-group">
                     <li class="list-group-item"><a class="navbar-brand link-dark" href="index.php">Home</a></li>
@@ -27,7 +30,7 @@
                     <li class="list-group-item"><a class="navbar-brand link-dark" href="logout.php">Log out</a></li>
                 </ul>
             </div>
-            <div class="col-9">
+            <div class="col-10">
                 <h4>View All Posts</h4>
                 <table class="table">
                     <thead class="table-dark">
@@ -38,13 +41,26 @@
                             <th>Post Title</th>
                             <th>Post Image</th>
                             <th>Post Content</th>
-                            <th>Edit Post</th>
+                            <th>Delete</th>
+                            <th>Edit</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <?php 
+                            while ($row = mysqli_fetch_assoc($result)) {
+                    
+                        ?>
                         <tr>
-                            <td></td>
+                            <td><?php echo $row['post_id'] ?></td>
+                            <td><?php echo $row['post_date'] ?></td>
+                            <td><?php echo $row['post_author'] ?></td>
+                            <td><?php echo $row['post_title'] ?></td>
+                            <td><img width="50" height="50" src="../img/<?php echo $row['post_image'] ?>" alt=""></td>
+                            <td><?php echo substr($row['post_content'],0,100) ?></td>
+                            <td><a class="btn btn-danger" href="delete.php?del=<?php echo $row['post_id']; ?>">Delete</a></td>
+                            <td><a class="btn btn-primary" href="edit_post.php?edit=<?php echo $row['post_id']; ?>">Edit</a></td>
                         </tr>
+                            <?php } ?>
                     </tbody>
                 </table>
             
