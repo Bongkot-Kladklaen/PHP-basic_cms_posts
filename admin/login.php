@@ -21,11 +21,18 @@
                 <form action="include/login.php" method="POST">
                     <h1 class="mt-5" align="center">Login</h1>
                     <?php 
-                    if($_SESSION['error']){
+                    if($_SESSION['error'] == 'error'){
                         echo "<div class='alert alert-danger' role='alert'>
                             Username or Password wrong!
                             </div>";
+                    } elseif($_SESSION['error'] == 'empty') {
+                        echo "<div class='alert alert-danger' role='alert'>
+                            Username or Password empty!
+                            </div>";
+                    }else{
+                        
                     }
+         
                     ?>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Username</label>
@@ -36,7 +43,10 @@
                         <input type="password" name="password" class="form-control" id="exampleInputPassword1">
                     </div>
                     <button type="submit" name="login" class="btn btn-primary">Submit</button>
-                </form>
+                </form><br>
+                <h5>User and Pass for test posts</h5>
+                <label for="">Username = admin</label>
+                <label for="">Password = 12345</label>
             </div>
             <div class="col"></div>
         </div>
