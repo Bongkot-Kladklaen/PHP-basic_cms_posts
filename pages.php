@@ -14,7 +14,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Basic Posts CMS</a>
+    <a class="navbar-brand" href="index.php">Basic Posts CMS</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -22,10 +22,10 @@
       <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
        
       </ul>
-      <form class="d-flex">
-        <input class="form-control mr-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+      <form action="search.php" method="post" class="d-flex">
+          <input class="form-control mr-2" name="search" type="text" placeholder="Search">
+          <input class="btn btn-outline-success" name="search_submit" type="submit" value="Search">
+        </form>
     </div>
   </div>
 </nav><br>
