@@ -7,9 +7,9 @@ CREATE TABLE admin(
 CREATE TABLE posts(
     post_id INT(10) NOT NULL PRIMARY KEY auto_increment,
     post_title VARCHAR(255) NOT NULL,
-    post_date VARCHAR(255) NOT NULL,
+    post_date DATE NOT NULL,
     post_author VARCHAR(255) NOT NULL,
-    post_image VARCHAR(255) NOT NULL,
-    post_keywords VARCHAR(255) NOT NULL,
-    post_content VARCHAR(255) NOT NULL,
+    post_image TEXT NOT NULL,
+    post_keywords TEXT NOT NULL,
+    post_content TEXT NOT NULL
 ) ENGINE = InnoDB DEFAULT charset=utf8;
