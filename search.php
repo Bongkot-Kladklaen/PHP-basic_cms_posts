@@ -28,15 +28,15 @@
 </nav><br>
 
 <div class="container">
-    <div class="row justify-content-evenly">
-        <figure class="figure">
-            <img src="..." class="figure-img img-fluid rounded" alt="...">
-            <figcaption class="figure-caption">
-                <p>Posted By <strong>Admin</strong> | Published on <strong>2019-03-09</strong></p>
-                A caption for the above image.
-            </figcaption>
-        </figure>   
-    </div> 
+        <div class="card mb-3" style="width: 18rem; padding-top: 12px;">
+            <img height="200"  src="img/<?php echo $post_image;?>" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title"><?php echo $post_title;?></h5>
+                <p>By <strong><?php echo $post_author;?></strong> | Time <strong><?php echo $post_date;?></strong></p>
+                <p class="card-text"><?php echo $post_content;?></p>
+                <a href="pages.php?id=<?php echo $post_id;?>" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
 </div>
 
 </body>
