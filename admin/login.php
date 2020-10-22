@@ -23,7 +23,7 @@
                     <?php 
                     if($_SESSION['error']){
                         echo "<div class='alert alert-danger' role='alert'>
-                            A simple danger alert—check it out!
+                            Username or Password wrong!
                             </div>";
                     }
                     ?>
