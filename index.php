@@ -1,9 +1,12 @@
+<?php 
+  require_once "admin/database/database.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Basic Posts CMS</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css" integrity="sha384-DhY6onE6f3zzKbjUPRc2hOzGAdEf4/Dz+WJwBvEYL/lkkIsI3ihufq9hk9K4lVoK" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper.js -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
@@ -28,31 +31,31 @@
 </nav><br>
 <div class="container">
     <div class="row justify-content-evenly">
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
+
+    <?php 
+      $sql = "SELECT * FROM posts";
+      $result = mysqli_query($conn,$sql);
+
+      while ($row = mysqli_fetch_array($result)) {
+            $post_id = $row['post_id'];
+            $post_title = $row['post_title'];
+            $post_author = $row['post_author'];
+            $post_date = date('y-m-d');
+            $post_image = $row['post_image'];
+            $post_content = substr($row['post_content'],0,100);
+    ?>
+        <div class="card mb-3" style="width: 18rem; padding-top: 12px;">
+            <img height="200"  src="img/<?php echo $post_image;?>" class="card-img-top" alt="...">
             <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p>By <strong>Admin</strong> | Time <strong>2019-03-09</strong></p>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="pages.php" class="btn btn-primary">Go somewhere</a>
+                <h5 class="card-title"><?php echo $post_title;?></h5>
+                <p>By <strong><?php echo $post_author;?></strong> | Time <strong><?php echo $post_date;?></strong></p>
+                <p class="card-text"><?php echo $post_content;?></p>
+                <a href="pages.php?id=<?php echo $post_id;?>" class="btn btn-primary">Go somewhere</a>
             </div>
         </div>
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
-        <div class="card" style="width: 18rem;">
-            <img src="..." class="card-img-top" alt="...">
-            <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                <a href="#" class="btn btn-primary">Go somewhere</a>
-            </div>
-        </div>
+
+    <?php } ?>
+        
     </div>
    
 </div>

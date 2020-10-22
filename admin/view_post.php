@@ -56,7 +56,7 @@
                             <td><?php echo $row['post_author'] ?></td>
                             <td><?php echo $row['post_title'] ?></td>
                             <td><img width="50" height="50" src="../img/<?php echo $row['post_image'] ?>" alt=""></td>
-                            <td><?php echo substr($row['post_content'],0,100) ?></td>
+                            <td><?php echo substr($row['post_content'],0,50) ?></td>
                             <td><a class="btn btn-danger" href="delete.php?del=<?php echo $row['post_id']; ?>">Delete</a></td>
                             <td><a class="btn btn-primary" href="edit_post.php?edit=<?php echo $row['post_id']; ?>">Edit</a></td>
                         </tr>

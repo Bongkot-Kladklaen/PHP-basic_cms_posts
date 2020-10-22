@@ -1,3 +1,6 @@
+<?php 
+  require_once "admin/database/database.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,11 +32,30 @@
 
 <div class="container">
     <div class="row justify-content-evenly">
+    <?php 
+
+      if ($_GET['id']) {
+        # code...
+        $id = $_GET['id'];
+        $sql = "SELECT * FROM posts where post_id = '$id' ";
+        $result = mysqli_query($conn,$sql);
+
+        while ($row = mysqli_fetch_array($result)) {
+              $post_title = $row['post_title'];
+              $post_author = $row['post_author'];
+              $post_date = date('y-m-d');
+              $post_image = $row['post_image'];
+              $post_content = $row['post_content'];
+        }
+
+      }
+    ?>
         <figure class="figure">
-            <img src="..." class="figure-img img-fluid rounded" alt="...">
+            <img src="img/<?php echo $post_image;?>" class="figure-img img-fluid rounded" alt="...">
             <figcaption class="figure-caption">
-                <p>Posted By <strong>Admin</strong> | Published on <strong>2019-03-09</strong></p>
-                A caption for the above image.
+                <h5 class="card-title"><?php echo $post_title;?></h5>
+                <p>Posted By <strong><?php echo $post_author;?></strong> | Published on <strong><?php echo $post_date;?></strong></p>
+                <?php echo $post_content;?>
             </figcaption>
         </figure>   
     </div> 

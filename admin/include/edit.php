@@ -22,7 +22,7 @@
         }
     }
 
-    if ($_POST['update']) {
+    if (isset($_POST['update'])) {
         $id = $_POST['edit_form'];
         $post_title = $_POST['title'];
         $post_date = date('y-m-d');
@@ -32,16 +32,19 @@
         $post_image = $_FILES['image']['name'];
         $image_path_name = $_FILES['image']['tmp_name'];
 
-        move_uploaded_file($image_path_name, "../../img/$post_image");
+        move_uploaded_file($image_path_name, "../img/$post_image");
 
-        $sql = "UPDATE posts SET post_title='$post_title', post_date='$post_date', post_author='$post_author', post_image='$post_image', post_keywords='$post_keywords', post_content='$post_content' WHERE post_id='$id'";
+        $sql = "UPDATE posts SET post_title='$post_title', post_date='$post_date', post_author='$post_author',
+                post_image='$post_image', post_keywords='$post_keywords', post_content='$post_content' WHERE post_id='$id'";
         $result = mysqli_query($conn,$sql);
 
         if ($result) {
-            echo "<script>alert('Post successfully');</script>";
+            echo "<script>alert('Update successfully');</script>";
             header("location: view_post.php");
         } else {
             echo "<script>alert('Something wrong');</script>";
         }
 
     }
+
+?>

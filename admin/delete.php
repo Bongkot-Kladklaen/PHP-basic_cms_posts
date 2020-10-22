@@ -6,10 +6,8 @@
         $id = $_GET['del'];
         $sql = " DELETE FROM posts WHERE post_id='$id' ";
         
-        $result = mysqli_query($conn,$sql);
-        if(!$result){
-            echo "Error";
-        } else {
+        if(mysqli_query($conn,$sql)){
+            echo "<script>alert('Post has been deleted')</script>";
             header("location: view_post.php");
         }
     }
