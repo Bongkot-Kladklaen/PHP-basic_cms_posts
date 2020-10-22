@@ -1,5 +1,5 @@
 <?php 
-  require_once "admin/database/database.php";
+  require_once "database/database.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -33,6 +33,7 @@
     <?php 
       $sql = "SELECT * FROM posts";
       $result = mysqli_query($conn,$sql);
+  
 
       while ($row = mysqli_fetch_array($result)) {
             $post_id = $row['post_id'];

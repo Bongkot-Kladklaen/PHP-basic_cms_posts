@@ -1,5 +1,5 @@
 <?php
-require_once "admin/database/database.php";
+require_once "database/database.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

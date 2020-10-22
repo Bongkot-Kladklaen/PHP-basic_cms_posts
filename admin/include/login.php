@@ -1,6 +1,6 @@
 <?php 
     $path = realpath(dirname(__FILE__));
-    require_once  $path."../../database/database.php";
+    require_once  $path."../../../database/database.php";
 
     session_start();
     if(isset($_POST['login'])){
@@ -12,15 +12,15 @@
 
         if(empty($username) || empty($password)){
             $_SESSION['error'] = 'empty';
-            header("location: ../login.php");
+            header("location: login.php");
         } else {
             if(mysqli_num_rows($result) > 0){
                 $_SESSION['username'] = $username;
-                header("location: ../index.php");
+                header("location: index.php");
                 
             } else {
                 $_SESSION['error'] = 'error';
-                header("location: ../login.php");
+                header("location: login.php");
             }
         }
 

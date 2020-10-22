@@ -1,6 +1,4 @@
-<?php 
-    require_once "include/login.php"
-?>
+<?php require_once "include/login.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,7 +16,7 @@
         <div class="row">
             <div class="col"></div>
             <div class="col-12 col-sm-8 col-md-7 col-lg-5">
-                <form action="include/login.php" method="POST">
+                <form action="login.php" method="POST">
                     <h1 class="mt-5" align="center">Login</h1>
                     <?php 
                     if($_SESSION['error'] == 'error'){
