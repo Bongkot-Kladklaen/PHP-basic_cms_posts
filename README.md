@@ -55,4 +55,4 @@ $ cd PHP-basic_cms_posts
     ```
 
 ## License
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](LICENSE)
