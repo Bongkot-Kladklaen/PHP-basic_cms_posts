@@ -24,8 +24,8 @@ Example web application page
 
 ## Technologies
 Project is created with:
-- php >= 7
-- Bootstrap 5
+- [php >= 7](https://www.php.net/)
+- [Bootstrap 5](https://v5.getbootstrap.com/)
 
 
 ## Setup
