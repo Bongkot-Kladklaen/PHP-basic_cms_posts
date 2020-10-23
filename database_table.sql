@@ -1,3 +1,6 @@
+CREATE DATABASE basic_cms CHARACTER SET utf8 COLLATE utf8_unicode_ci;
+USE basic_cms;
+
 CREATE TABLE admin(
     id INT(10) NOT NULL PRIMARY KEY auto_increment,
     username VARCHAR(255) NOT NULL,

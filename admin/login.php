@@ -27,10 +27,7 @@
                         echo "<div class='alert alert-danger' role='alert'>
                             Username or Password empty!
                             </div>";
-                    }else{
-                        
                     }
-         
                     ?>
                     <div class="mb-3">
                         <label for="exampleInputEmail1" class="form-label">Username</label>

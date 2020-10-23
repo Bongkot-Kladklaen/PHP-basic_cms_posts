@@ -1,7 +1,9 @@
 <?php 
 
-    define('DB_HOST', 'localhost');
-    define('DB_USER', 'root');
-    define('DB_PASS', 'root');
-    define('DB_NAME', 'basiccms');
+# Config database connect
+define('DB_HOST', 'localhost');     // hostname
+define('DB_USER', 'root');          // username
+define('DB_PASS', 'root');          // password
+define('DB_NAME', 'basic_cms');     // database
+
 ?>
