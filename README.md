@@ -35,8 +35,12 @@ $ git clone https://github.com/Bongkot-Kladklaen/PHP-basic_cms_posts.git
 $ cd PHP-basic_cms_posts
 ```
 ## Config project
-1. Create database and table : Open project `PHP-basic_cms_posts` find file `database_table.sql` and Import file to database server for you
-2. Config connect database server : Open project `PHP-basic_cms_posts` find folder: `config>config.php` to config: hostname, username, password, database
+1. Create database and table :
+
+    Open project `PHP-basic_cms_posts` find file `database_table.sql` and Import file to database server for you
+2. Config connect database server : 
+
+    Open project `PHP-basic_cms_posts` find folder: `config>config.php` to config: hostname, username, password, database
  
     ```php
         # Config database connect
